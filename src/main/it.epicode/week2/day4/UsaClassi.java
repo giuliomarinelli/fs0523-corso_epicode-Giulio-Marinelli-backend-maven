@@ -1,5 +1,11 @@
 package week2.day4;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class UsaClassi {
@@ -19,5 +25,9 @@ public class UsaClassi {
         Order o5 = new Order(c4);
         o1.addProduct(new Product("calendario", "Calendari", 10.0));
         o1.addProduct(new Product("Colla", "Colla", 2.0));
+        Map<Customer, List<Order>> m = Stream.of(o1, o2, o3, o4, o5).collect(Collectors.groupingBy(o -> o.getCustomer()));
+        System.out.println(m);
     }
+
+
 }
